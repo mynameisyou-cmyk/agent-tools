@@ -104,22 +104,17 @@ Ordered by dependency. Heartbeat works top to bottom.
 
 ## Phase 4 — Billing
 
-### Stripe (fiat)
-- [ ] [S] src/billing/stripe.ts — Stripe client, helper functions
-- [ ] [S] src/api/billing/checkout.ts — POST /v1/billing/checkout (create Stripe session)
-- [ ] [S] src/api/billing/portal.ts — POST /v1/billing/portal (Stripe billing portal)
-- [ ] [C] src/api/billing/webhooks.ts — handle all Stripe webhook events
-  - checkout.session.completed → credits + plan
-  - invoice.payment_succeeded → monthly credit renewal
-  - invoice.payment_failed → grace period
-  - customer.subscription.deleted → downgrade
+### Stripe (fiat) ✅
+- [x] [S] src/billing/stripe.ts — Stripe client, checkout, portal, event handlers
+- [x] [S] src/api/billing/checkout.ts — POST /v1/billing/checkout
+- [x] [S] src/api/billing/portal.ts — POST /v1/billing/portal
+- [x] [C] src/api/billing/webhooks.ts — checkout.completed, invoice.succeeded/failed, subscription.deleted
 - [ ] [S] tests/billing.test.ts (mock Stripe)
 
-### Crypto (USDC on Base)
-- [ ] [C] src/billing/crypto/wallet.ts — HD wallet, deterministic address per project (ethers.js)
-- [ ] [C] src/billing/crypto/webhook.ts — Alchemy webhook handler: USDC Transfer → confirm → add credits
-- [ ] [S] src/api/billing/crypto.ts — GET /v1/billing/crypto (return deposit address + QR)
-- [ ] [T] Add LGM token hook (placeholder — token contract address TBD)
+### Crypto (USDC on Base) ✅
+- [x] [C] src/billing/crypto/wallet.ts — HD wallet, deterministic address per project (ethers.js)
+- [x] [C] src/billing/crypto/webhook.ts — Alchemy webhook: USDC Transfer → confirm → add credits
+- [x] [S] src/api/billing/crypto.ts — GET deposit address + POST webhook receiver
 
 ---
 
