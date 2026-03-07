@@ -133,10 +133,13 @@ Ordered by dependency. Heartbeat works top to bottom.
 ## Phase 6 — Infrastructure & Deploy
 
 - [x] [S] DEPLOY.md — full production deploy runbook
-- [ ] [C] Hetzner VPS setup: Docker, Playwright dependencies, Chromium, env vars
-- [ ] [S] Railway: PostgreSQL + Redis provisioned and connected
-- [ ] [S] Cloudflare: domain pointed, SSL full strict, WAF rules, rate limiting
-- [ ] [S] GitHub Actions: deploy-staging (auto on push), deploy-prod (manual approval)
+- [x] [T] Dockerfile — multi-stage (deps → build → prod), Playwright + Chromium, non-root user, healthcheck
+- [x] [S] docker-compose.prod.yml — API + Redis + Caddy (auto HTTPS)
+- [x] [T] Caddyfile — reverse proxy, security headers, logging
+- [x] [S] GitHub Actions — CI (bun test), deploy-staging (auto), deploy-prod (manual approval)
+- [ ] [C] Hetzner VPS setup: Docker, pull image, env vars, start compose
+- [ ] [S] Railway: PostgreSQL provisioned (prod DATABASE_URL)
+- [ ] [S] Cloudflare: domain registered + pointed, SSL full strict, WAF, rate limiting
 - [ ] [S] Healthcheck: UptimeRobot or Cloudflare health alerts
 - [ ] [T] Set up error tracking (Sentry or equivalent)
 
