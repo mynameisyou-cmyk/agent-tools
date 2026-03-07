@@ -53,51 +53,52 @@ Ordered by dependency. Heartbeat works top to bottom.
 
 ## Phase 3 — Core Build
 
-### Auth & Projects
-- [ ] [S] src/db/schema.ts — finalise + generate migration
-- [ ] [S] src/auth/keys.ts — generate, hash, verify API keys
-- [ ] [S] src/auth/middleware.ts — Hono middleware: extract key → load project → attach to context
-- [ ] [S] src/api/projects.ts — POST /v1/projects (create project + first key)
-- [ ] [S] src/api/keys.ts — GET/POST/DELETE /v1/keys
+### Auth & Projects ✅
+- [x] [S] src/db/schema.ts — Drizzle schema (projects, api_keys, usage_events, billing_events)
+- [x] [S] src/auth/keys.ts — generate, hash, verify API keys
+- [x] [S] src/auth/middleware.ts — Hono Bearer auth middleware
+- [x] [S] src/api/projects.ts — POST /v1/projects (create project + first key)
+- [x] [S] src/api/keys.ts — GET/POST/DELETE /v1/keys
+- [x] [S] src/auth/ratelimit.ts — Redis sliding window rate limiting per plan
 
-### Tool: Search
-- [ ] [S] src/tools/search.ts — Brave Search API wrapper + Redis cache (1h TTL)
-- [ ] [S] src/api/search.ts — POST /v1/search route (auth → deduct credits → call tool → log usage)
+### Tool: Search ✅
+- [x] [S] src/tools/search.ts — Brave Search API wrapper + Redis cache
+- [x] [S] src/api/search.ts — POST /v1/search route
 - [ ] [S] tests/search.test.ts
 
-### Tool: Scrape
-- [ ] [S] src/tools/scrape.ts — fetch HTML (undici) → Cheerio parse → optional schema extraction
-- [ ] [S] src/api/scrape.ts — POST /v1/scrape route
+### Tool: Scrape ✅
+- [x] [S] src/tools/scrape.ts — undici + Cheerio + schema extraction
+- [x] [S] src/api/scrape.ts — POST /v1/scrape route
 - [ ] [S] tests/scrape.test.ts
 
-### Tool: Document
-- [ ] [S] src/tools/document.ts — PDF (pdfjs-dist), docx (mammoth), HTML (readability)
-- [ ] [S] src/api/document.ts — POST /v1/document route
+### Tool: Document ✅
+- [x] [S] src/tools/document.ts — PDF + HTML (readability)
+- [x] [S] src/api/document.ts — POST /v1/document route
 - [ ] [S] tests/document.test.ts
 
-### Queue Infrastructure (needed for Browser + Execute)
-- [ ] [C] src/queue/worker.ts — BullMQ worker setup, graceful shutdown
-- [ ] [S] src/queue/jobs.ts — job definitions (browse, execute)
-- [ ] [S] src/queue/results.ts — poll/stream job results
+### Queue Infrastructure ✅
+- [x] [C] src/queue/worker.ts — BullMQ worker
+- [x] [S] src/queue/jobs.ts — job definitions
+- [x] [S] src/queue/results.ts — poll results
 
-### Tool: Browser
-- [ ] [C] src/tools/browser/pool.ts — Playwright session pool (5 workers, warmup, teardown)
-- [ ] [C] src/tools/browser/actions.ts — action executor (navigate, click, type, extract, screenshot)
-- [ ] [C] src/tools/browser/proxy.ts — Bright Data proxy rotation per session
-- [ ] [S] src/api/browse.ts — POST /v1/browse route (sync < 5s, async otherwise → job_id)
-- [ ] [S] src/api/jobs.ts — GET /v1/jobs/:id (poll async results)
+### Tool: Browser ✅
+- [x] [C] src/tools/browser/pool.ts — Playwright session pool
+- [x] [C] src/tools/browser/actions.ts — action executor
+- [x] [C] src/tools/browser/proxy.ts — Bright Data proxy rotation
+- [x] [S] src/api/browse.ts — POST /v1/browse route
+- [x] [S] src/api/jobs.ts — GET /v1/jobs/:id
 - [ ] [C] tests/browse.test.ts
 
-### Tool: Execute
-- [ ] [C] src/tools/execute/sandbox.ts — Docker exec (spawn container, pipe stdin, cap resources)
-- [ ] [S] src/tools/execute/languages.ts — Python/Node/bash configs
-- [ ] [S] src/api/execute.ts — POST /v1/execute route
+### Tool: Execute ✅
+- [x] [C] src/tools/execute/sandbox.ts — Docker sandbox with resource limits
+- [x] [S] src/tools/execute/languages.ts — Python 3.11 / Node 22 / bash configs
+- [x] [S] src/api/execute.ts — POST /v1/execute route
 - [ ] [S] tests/execute.test.ts
 
-### Usage & Credits
-- [ ] [S] src/billing/credits.ts — deduct(), refund(), balance()
-- [ ] [S] src/api/usage.ts — GET /v1/usage
-- [ ] [S] src/billing/limits.ts — plan limit enforcement (rate limit middleware)
+### Usage & Credits ✅
+- [x] [S] src/billing/credits.ts — deduct(), refund(), balance()
+- [x] [S] src/api/usage.ts — GET /v1/usage
+- [x] [S] src/billing/limits.ts → src/auth/ratelimit.ts — Redis sliding window per plan
 
 ---
 
