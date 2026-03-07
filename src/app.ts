@@ -16,6 +16,7 @@ import usageRoutes from "./api/usage";
 import checkoutRoutes from "./api/billing/checkout";
 import portalRoutes from "./api/billing/portal";
 import webhookRoutes from "./api/billing/webhooks";
+import cryptoRoutes from "./api/billing/crypto";
 
 const app = new Hono();
 
@@ -45,6 +46,7 @@ app.route("/v1/usage", usageRoutes);
 app.route("/v1/billing/checkout", checkoutRoutes);
 app.route("/v1/billing/portal", portalRoutes);
 app.route("/v1/billing/webhooks", webhookRoutes); // No auth — Stripe signature verified
+app.route("/v1/billing/crypto", cryptoRoutes);    // GET authed, POST webhook Alchemy-signed
 
 // 404 fallback
 app.notFound((c) => c.json({ error: "Not found" }, 404));
