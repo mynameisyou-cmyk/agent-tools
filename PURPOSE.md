@@ -84,9 +84,7 @@ breaks everything downstream.
 
 Network effect: more agents → more usage data → better reliability → more agents.
 
-**Bridge to Legible Money**: Tool calls that produce verified outputs can be submitted as
-evidence to LGM's knowledge graph. Every agent-tools result is potentially a citable source
-in Legible Money's Proof of Truth pipeline.
+Standalone product. Integrations with other systems to be determined in future.
 
 ## Status
 

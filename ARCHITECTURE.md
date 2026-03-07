@@ -257,14 +257,6 @@ Register via Cloudflare Registrar. Point NS to Cloudflare immediately.
 - Alchemy webhook: `eth_logs` filter on USDC Transfer to our address
 - On confirmed transfer → calculate credits (amount ÷ £0.008) → add to balance
 - Display: QR code + address on payment page
-- Future: LGM token accepted (add new token contract address)
-
-## LGM Bridge
-When LGM mainnet launches:
-- Accept LGM as payment (add token contract to crypto handler)
-- Every API call can optionally include LGM stake to flag "this result is verified"
-- Flagged results submitted to LGM knowledge graph as evidence
-- agent-tools becomes an LGM oracle node: tool outputs with high usage = trusted evidence
 
 ## Deployment
 See DEPLOY.md (Phase 4).
