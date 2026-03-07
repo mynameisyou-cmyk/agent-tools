@@ -1,8 +1,10 @@
-# agent-tools — Reliable Tool Substrate for AI Agents
+# agent-tools — The OS for Your Agent's Tools
+
+> *"We have a powerful new kernel (the LLM) but no Operating System to run it."* — Andrej Karpathy
 
 ## The Problem
 
-Tool failure is the #1 source of agent failure.
+Tool failure is the #1 source of agent failure in production.
 
 Rate limits hit. CAPTCHAs block. APIs change without notice. Auth tokens expire.
 Proxies burn. DOM structures shift. The agent calls the tool — gets an error — hallucinates a workaround — cascades.

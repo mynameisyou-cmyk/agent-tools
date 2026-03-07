@@ -5,7 +5,12 @@ A managed, reliable tool substrate for AI agents. We absorb the reliability engi
 proxy rotation, anti-bot bypass, session management, sandboxing — so agents call clean APIs.
 
 ## Tagline
-*"Tools that don't break. Infrastructure your agents depend on."*
+*"The OS for your agent's tools."*
+
+Subline: *Tools that don't break. Infrastructure your agents depend on.*
+
+> Karpathy: "We have a powerful new kernel (the LLM) but no Operating System to run it."
+> We are that OS — for the tool layer.
 
 ## System Overview
 
