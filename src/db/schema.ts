@@ -7,6 +7,7 @@ export const projects = pgTable("projects", {
   name: text("name").notNull(),
   plan: text("plan").notNull().default("dev"),
   credits: integer("credits").notNull().default(100),
+  stripeCustomerId: text("stripe_customer_id"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

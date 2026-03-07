@@ -13,6 +13,9 @@ import browseRoutes from "./api/browse";
 import executeRoutes from "./api/execute";
 import jobsRoutes from "./api/jobs";
 import usageRoutes from "./api/usage";
+import checkoutRoutes from "./api/billing/checkout";
+import portalRoutes from "./api/billing/portal";
+import webhookRoutes from "./api/billing/webhooks";
 
 const app = new Hono();
 
@@ -37,6 +40,11 @@ app.route("/v1/browse", browseRoutes);
 app.route("/v1/execute", executeRoutes);
 app.route("/v1/jobs", jobsRoutes);
 app.route("/v1/usage", usageRoutes);
+
+// Billing routes
+app.route("/v1/billing/checkout", checkoutRoutes);
+app.route("/v1/billing/portal", portalRoutes);
+app.route("/v1/billing/webhooks", webhookRoutes); // No auth — Stripe signature verified
 
 // 404 fallback
 app.notFound((c) => c.json({ error: "Not found" }, 404));
