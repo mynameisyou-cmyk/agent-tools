@@ -36,17 +36,18 @@ Ordered by dependency. Heartbeat works top to bottom.
 
 ---
 
-## Phase 2 — Scaffold
-- [ ] [S] Init Bun project: `bun init` + package.json
-- [ ] [S] Install dependencies: hono, @hono/zod-openapi, bullmq, ioredis, pg, drizzle-orm, playwright, bcryptjs, stripe, zod
-- [ ] [S] Directory structure: src/{tools,api,queue,billing,auth,db}
-- [ ] [T] tsconfig.json (strict, Bun target)
-- [ ] [T] .env.example (all vars)
-- [ ] [T] docker-compose.yml (postgres + redis for local dev)
-- [ ] [S] src/db/schema.ts — Drizzle ORM schema (projects, api_keys, usage_events, billing_events)
-- [ ] [S] src/db/migrate.ts — migration runner
-- [ ] [T] Dockerfile (multi-stage, includes Playwright + Chromium)
-- [ ] [S] GitHub Actions: CI (bun test), deploy-staging on push to staging
+## Phase 2 — Scaffold ✅
+- [x] [S] Init Bun project + package.json + scripts
+- [x] [S] Install deps (hono, zod, bullmq, ioredis, drizzle, postgres, bcryptjs, stripe, cheerio, readability)
+- [x] [S] Directory structure: src/{tools/browser,tools/execute,api/billing,auth,db,queue}
+- [x] [T] tsconfig.json + drizzle.config.ts
+- [x] [T] .env.example + .gitignore
+- [x] [T] docker-compose.yml (postgres 16 + redis 7)
+- [x] [S] src/db/schema.ts — Drizzle ORM (projects, api_keys, usage_events, billing_events)
+- [x] [S] src/db/client.ts + src/config.ts + src/auth/keys.ts + src/auth/middleware.ts
+- [x] [S] src/app.ts + src/index.ts — Hono app + Bun server
+- [ ] [T] Dockerfile (multi-stage, Playwright + Chromium)
+- [ ] [S] GitHub Actions: CI (bun test), deploy-staging
 
 ---
 
