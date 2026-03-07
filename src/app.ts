@@ -17,6 +17,7 @@ import checkoutRoutes from "./api/billing/checkout";
 import portalRoutes from "./api/billing/portal";
 import webhookRoutes from "./api/billing/webhooks";
 import cryptoRoutes from "./api/billing/crypto";
+import healthRoutes from "./api/health";
 
 const app = new Hono();
 
@@ -24,10 +25,8 @@ const app = new Hono();
 app.use("*", logger());
 app.use("*", cors());
 
-// Health check (no auth)
-app.get("/health", (c) =>
-  c.json({ status: "ok", version: "0.1.0", tools: ["search", "scrape", "browse", "document", "execute"] }),
-);
+// Health check (no auth — deep check with DB + Redis status)
+app.route("/", healthRoutes);
 
 // Project + key management
 app.route("/v1/projects", projectsRoutes);
