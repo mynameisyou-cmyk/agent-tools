@@ -17,7 +17,7 @@ Ordered by dependency. Heartbeat works top to bottom.
 - [ ] [T] Create private GitHub repo: agent-tools
 - [ ] [T] Set branch protection: main requires PR + CI pass
 - [ ] [T] Create branches: main, staging
-- [ ] [T] Add .gitignore (node_modules, .env, dist, .wrangler)
+- [x] [T] Add .gitignore (node_modules, .env, dist, .wrangler)
 - [ ] [T] Initial commit: PURPOSE.md + ARCHITECTURE.md + TODO.md
 
 ### Accounts & Services
@@ -46,8 +46,8 @@ Ordered by dependency. Heartbeat works top to bottom.
 - [x] [S] src/db/schema.ts — Drizzle ORM (projects, api_keys, usage_events, billing_events)
 - [x] [S] src/db/client.ts + src/config.ts + src/auth/keys.ts + src/auth/middleware.ts
 - [x] [S] src/app.ts + src/index.ts — Hono app + Bun server
-- [ ] [T] Dockerfile (multi-stage, Playwright + Chromium)
-- [ ] [S] GitHub Actions: CI (bun test), deploy-staging
+- [x] [T] Dockerfile (multi-stage, Playwright + Chromium)
+- [x] [S] GitHub Actions: CI (bun test), deploy-staging
 
 ---
 
@@ -64,17 +64,17 @@ Ordered by dependency. Heartbeat works top to bottom.
 ### Tool: Search ✅
 - [x] [S] src/tools/search.ts — Brave Search API wrapper + Redis cache
 - [x] [S] src/api/search.ts — POST /v1/search route
-- [ ] [S] tests/search.test.ts
+- [x] [S] tests/search.test.ts
 
 ### Tool: Scrape ✅
 - [x] [S] src/tools/scrape.ts — undici + Cheerio + schema extraction
 - [x] [S] src/api/scrape.ts — POST /v1/scrape route
-- [ ] [S] tests/scrape.test.ts
+- [x] [S] tests/scrape.test.ts
 
 ### Tool: Document ✅
 - [x] [S] src/tools/document.ts — PDF + HTML (readability)
 - [x] [S] src/api/document.ts — POST /v1/document route
-- [ ] [S] tests/document.test.ts
+- [x] [S] tests/document.test.ts
 
 ### Queue Infrastructure ✅
 - [x] [C] src/queue/worker.ts — BullMQ worker
@@ -87,13 +87,13 @@ Ordered by dependency. Heartbeat works top to bottom.
 - [x] [C] src/tools/browser/proxy.ts — Bright Data proxy rotation
 - [x] [S] src/api/browse.ts — POST /v1/browse route
 - [x] [S] src/api/jobs.ts — GET /v1/jobs/:id
-- [ ] [C] tests/browse.test.ts
+- [x] [C] tests/browse.test.ts
 
 ### Tool: Execute ✅
 - [x] [C] src/tools/execute/sandbox.ts — Docker sandbox with resource limits
 - [x] [S] src/tools/execute/languages.ts — Python 3.11 / Node 22 / bash configs
 - [x] [S] src/api/execute.ts — POST /v1/execute route
-- [ ] [S] tests/execute.test.ts
+- [x] [S] tests/execute.test.ts
 
 ### Usage & Credits ✅
 - [x] [S] src/billing/credits.ts — deduct(), refund(), balance()
