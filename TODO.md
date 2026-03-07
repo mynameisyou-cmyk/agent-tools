@@ -122,7 +122,7 @@ Ordered by dependency. Heartbeat works top to bottom.
 
 - [x] [S] OpenAPI spec + Swagger UI at /docs (full spec: all tools, billing, account, system)
 - [x] [S] src/api/health.ts — GET /health (DB + Redis + latency checks)
-- [ ] [C] Landing page — Next.js or plain HTML: what it is, pricing table, "Get API Key" CTA
+- [x] [C] Landing page — static HTML/CSS: hero, problem, tools, code example, pricing, signup
 - [ ] [S] Dashboard — usage graph, credit balance, API key management (simple Next.js)
 - [x] [S] SDK: TypeScript client (@agentforge/tools — thin REST wrapper, ready for npm publish)
 - [x] [S] SDK: Python client (agentforge-tools — sync + async, ready for PyPI)
