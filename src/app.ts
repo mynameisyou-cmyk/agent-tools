@@ -4,6 +4,8 @@ import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { cors } from "hono/cors";
 
+import projectsRoutes from "./api/projects";
+import keysRoutes from "./api/keys";
 import searchRoutes from "./api/search";
 import scrapeRoutes from "./api/scrape";
 import documentRoutes from "./api/document";
@@ -22,6 +24,10 @@ app.use("*", cors());
 app.get("/health", (c) =>
   c.json({ status: "ok", version: "0.1.0", tools: ["search", "scrape", "browse", "document", "execute"] }),
 );
+
+// Project + key management
+app.route("/v1/projects", projectsRoutes);
+app.route("/v1/keys", keysRoutes);
 
 // Tool routes (auth-protected via individual routers)
 app.route("/v1/search", searchRoutes);
