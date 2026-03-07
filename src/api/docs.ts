@@ -12,7 +12,7 @@ const openApiSpec = {
     version: "0.1.0",
     description:
       "The OS for your agent's tools. Reliable search, scrape, browse, document parsing, and code execution for AI agents.",
-    contact: { email: "hello@agentforge.dev" },
+    contact: { email: "hello@agenttool.dev" },
   },
   servers: [
     { url: "http://localhost:3000", description: "Local development" },

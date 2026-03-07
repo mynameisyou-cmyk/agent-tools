@@ -1,17 +1,17 @@
-# @agentforge/tools
+# @agenttool/tools
 
 TypeScript SDK for **agent-tools** — The OS for your agent's tools.
 
 ## Install
 
 ```bash
-npm install @agentforge/tools
+npm install @agenttool/tools
 ```
 
 ## Quick Start
 
 ```typescript
-import { AgentTools } from "@agentforge/tools";
+import { AgentTools } from "@agenttool/tools";
 
 const tools = new AgentTools({ apiKey: "at_your_key_here" });
 

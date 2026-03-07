@@ -16,7 +16,7 @@ Internet → Cloudflare (DNS + DDoS + edge rate limit)
 
 ## Prerequisites
 
-- Domain registered on Cloudflare (agentforge.dev)
+- Domain registered on Cloudflare (agenttool.dev)
 - Hetzner Cloud account
 - Railway account
 - Stripe account with products configured
@@ -123,8 +123,8 @@ pm2 startup
 
 ### DNS
 ```
-A    api.agentforge.dev  → <hetzner_ip>  (proxied)
-A    agentforge.dev      → <landing_page_ip>  (proxied)
+A    api.agenttool.dev  → <hetzner_ip>  (proxied)
+A    agenttool.dev      → <landing_page_ip>  (proxied)
 ```
 
 ### SSL
@@ -138,7 +138,7 @@ A    agentforge.dev      → <landing_page_ip>  (proxied)
 - Bot Fight Mode: on (doesn't affect API keys in headers)
 
 ### Page Rules (optional)
-- `api.agentforge.dev/*` → Cache Level: Bypass
+- `api.agenttool.dev/*` → Cache Level: Bypass
 
 ---
 
@@ -146,10 +146,10 @@ A    agentforge.dev      → <landing_page_ip>  (proxied)
 
 ```bash
 # Point to production
-stripe listen --forward-to https://api.agentforge.dev/v1/billing/webhooks
+stripe listen --forward-to https://api.agenttool.dev/v1/billing/webhooks
 
 # Or configure in Stripe Dashboard:
-# Endpoint: https://api.agentforge.dev/v1/billing/webhooks
+# Endpoint: https://api.agenttool.dev/v1/billing/webhooks
 # Events: checkout.session.completed, invoice.payment_succeeded,
 #          invoice.payment_failed, customer.subscription.deleted
 ```
@@ -159,7 +159,7 @@ stripe listen --forward-to https://api.agentforge.dev/v1/billing/webhooks
 ## 5. Monitoring
 
 ### Health Endpoint
-`GET https://api.agentforge.dev/health`
+`GET https://api.agenttool.dev/health`
 
 Returns:
 ```json
@@ -172,7 +172,7 @@ Returns:
 ```
 
 ### UptimeRobot
-- Monitor: HTTPS, `https://api.agentforge.dev/health`
+- Monitor: HTTPS, `https://api.agenttool.dev/health`
 - Interval: 5 min
 - Alert: Email + Telegram
 

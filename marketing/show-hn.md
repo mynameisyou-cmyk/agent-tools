@@ -1,8 +1,8 @@
-# Show HN: AgentForge — The OS for your agent's tools
+# Show HN: AgentTool — The OS for your agent's tools
 
-**Title**: Show HN: AgentForge – Reliable tool APIs for AI agents (search, browser, scrape, execute)
+**Title**: Show HN: AgentTool – Reliable tool APIs for AI agents (search, browser, scrape, execute)
 
-**URL**: https://agentforge.dev
+**URL**: https://agenttool.dev
 
 ---
 
@@ -16,7 +16,7 @@ As Karpathy put it: *"We have a powerful new kernel (the LLM) but no Operating S
 
 So I built one — for the tool layer.
 
-**AgentForge** gives your agents five reliable tools via clean REST APIs:
+**AgentTool** gives your agents five reliable tools via clean REST APIs:
 
 - **Search** — web search with caching (no rate limits, no CAPTCHAs)
 - **Scrape** — structured extraction from any URL

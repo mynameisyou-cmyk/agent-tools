@@ -124,8 +124,8 @@ Ordered by dependency. Heartbeat works top to bottom.
 - [x] [S] src/api/health.ts — GET /health (DB + Redis + latency checks)
 - [x] [C] Landing page — static HTML/CSS: hero, problem, tools, code example, pricing, signup
 - [ ] [S] Dashboard — usage graph, credit balance, API key management (simple Next.js)
-- [x] [S] SDK: TypeScript client (@agentforge/tools — thin REST wrapper, ready for npm publish)
-- [x] [S] SDK: Python client (agentforge-tools — sync + async, ready for PyPI)
+- [x] [S] SDK: TypeScript client (@agenttool/tools — thin REST wrapper, ready for npm publish)
+- [x] [S] SDK: Python client (agenttool-sdk — sync + async, ready for PyPI)
 - [x] [T] README.md — quick start, API reference, pricing, self-host instructions
 
 ---

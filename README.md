@@ -25,24 +25,24 @@ Five tools, one API key:
 
 ```bash
 # Get an API key
-curl -X POST https://api.agentforge.dev/v1/projects \
+curl -X POST https://api.agenttool.dev/v1/projects \
   -H "Content-Type: application/json" \
   -d '{"name": "my-project"}'
 
 # Search the web
-curl -X POST https://api.agentforge.dev/v1/search \
+curl -X POST https://api.agenttool.dev/v1/search \
   -H "Authorization: Bearer at_your_key_here" \
   -H "Content-Type: application/json" \
   -d '{"query": "latest AI agent frameworks 2026"}'
 
 # Scrape a page
-curl -X POST https://api.agentforge.dev/v1/scrape \
+curl -X POST https://api.agenttool.dev/v1/scrape \
   -H "Authorization: Bearer at_your_key_here" \
   -H "Content-Type: application/json" \
   -d '{"url": "https://example.com", "selector": "article"}'
 
 # Browse with a managed browser
-curl -X POST https://api.agentforge.dev/v1/browse \
+curl -X POST https://api.agenttool.dev/v1/browse \
   -H "Authorization: Bearer at_your_key_here" \
   -H "Content-Type: application/json" \
   -d '{"url": "https://example.com", "actions": [{"type": "extract", "selector": "h1"}]}'

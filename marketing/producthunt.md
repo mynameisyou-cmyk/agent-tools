@@ -6,7 +6,7 @@ The OS for your agent's tools — search, browser, scrape, execute via reliable 
 ## Description
 AI agents fail in production because their tools break — not because the LLM is wrong.
 
-AgentForge gives your agents five reliable tools via clean REST APIs:
+AgentTool gives your agents five reliable tools via clean REST APIs:
 • Web search (no rate limits, no CAPTCHAs)
 • Managed browser automation (Playwright + proxy rotation)
 • Structured web scraping
@@ -20,9 +20,9 @@ Built for LangChain, AutoGen, CrewAI, OpenAI Assistants, and custom agent framew
 ## First Comment
 Hey Product Hunt! 👋
 
-I built AgentForge because I kept rebuilding the same brittle scrapers and browser automation for every AI agent project. Rate limits, CAPTCHAs, proxy rotation, session management — every team solves these problems from scratch.
+I built AgentTool because I kept rebuilding the same brittle scrapers and browser automation for every AI agent project. Rate limits, CAPTCHAs, proxy rotation, session management — every team solves these problems from scratch.
 
-AgentForge absorbs all the reliability engineering. Your agents call clean APIs. We handle everything behind the scenes.
+AgentTool absorbs all the reliability engineering. Your agents call clean APIs. We handle everything behind the scenes.
 
 The free tier gives you 100 credits to try every tool. Paid plans start at £39/month for 5,000 credits. We also accept USDC on Base for crypto-native teams.
 

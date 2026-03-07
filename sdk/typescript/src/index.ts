@@ -72,7 +72,7 @@ export class AgentTools {
 
   constructor(config: AgentToolsConfig) {
     this.apiKey = config.apiKey;
-    this.baseUrl = (config.baseUrl ?? "https://api.agentforge.dev").replace(/\/$/, "");
+    this.baseUrl = (config.baseUrl ?? "https://api.agenttool.dev").replace(/\/$/, "");
   }
 
   private async request<T>(method: string, path: string, body?: unknown): Promise<T> {

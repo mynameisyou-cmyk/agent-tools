@@ -1,17 +1,17 @@
-# agentforge-tools
+# agenttool-sdk
 
-Python SDK for [agent-tools](https://agentforge.dev) — The OS for your agent's tools.
+Python SDK for [agent-tools](https://agenttool.dev) — The OS for your agent's tools.
 
 ## Install
 
 ```bash
-pip install agentforge-tools
+pip install agenttool-sdk
 ```
 
 ## Quick Start
 
 ```python
-from agentforge import AgentTools
+from agenttool import AgentTools
 
 at = AgentTools(api_key="at_your_key_here")
 
@@ -46,7 +46,7 @@ print(at.usage())
 ## Async
 
 ```python
-from agentforge.client import AsyncAgentTools
+from agenttool.client import AsyncAgentTools
 
 async with AsyncAgentTools(api_key="at_...") as at:
     results = await at.search(query="hello")
@@ -54,7 +54,7 @@ async with AsyncAgentTools(api_key="at_...") as at:
 
 ## API Reference
 
-All methods return `dict` matching the [API docs](https://agentforge.dev/docs).
+All methods return `dict` matching the [API docs](https://agenttool.dev/docs).
 
 | Method | Cost | Description |
 |--------|------|-------------|

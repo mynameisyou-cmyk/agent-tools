@@ -43,16 +43,16 @@ That means:
 
 ## What We Built
 
-AgentForge provides five reliable tools via clean REST APIs:
+AgentTool provides five reliable tools via clean REST APIs:
 
 ```bash
 # Search the web
-curl -X POST https://agentforge.dev/v1/search \
+curl -X POST https://agenttool.dev/v1/search \
   -H "Authorization: Bearer at_your_key" \
   -d '{"query": "UK minimum wage 2026", "num_results": 5}'
 
 # Scrape structured data
-curl -X POST https://agentforge.dev/v1/scrape \
+curl -X POST https://agenttool.dev/v1/scrape \
   -H "Authorization: Bearer at_your_key" \
   -d '{"url": "https://example.com/pricing", "schema": {"price": "number", "plan": "string"}}'
 ```
@@ -63,4 +63,4 @@ Your agent calls a clean endpoint. We handle the proxy rotation, the anti-bot by
 
 ## Try It
 
-100 free credits at [agentforge.dev](https://agentforge.dev). No credit card required.
+100 free credits at [agenttool.dev](https://agenttool.dev). No credit card required.
