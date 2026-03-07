@@ -121,12 +121,12 @@ Ordered by dependency. Heartbeat works top to bottom.
 ## Phase 5 — Developer Experience
 
 - [ ] [S] OpenAPI spec auto-generated (Hono Zod OpenAPI) — /docs endpoint
-- [ ] [S] src/api/health.ts — GET /health (DB + Redis + queue status)
+- [x] [S] src/api/health.ts — GET /health (DB + Redis + latency checks)
 - [ ] [C] Landing page — Next.js or plain HTML: what it is, pricing table, "Get API Key" CTA
 - [ ] [S] Dashboard — usage graph, credit balance, API key management (simple Next.js)
 - [ ] [S] SDK: TypeScript client (thin REST wrapper, published to npm)
 - [ ] [S] SDK: Python client (published to PyPI)
-- [ ] [T] README.md — quick start, API reference link, pricing
+- [x] [T] README.md — quick start, API reference, pricing, self-host instructions
 
 ---
 

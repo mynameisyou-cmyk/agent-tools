@@ -18,6 +18,7 @@ import portalRoutes from "./api/billing/portal";
 import webhookRoutes from "./api/billing/webhooks";
 import cryptoRoutes from "./api/billing/crypto";
 import healthRoutes from "./api/health";
+import docsRoutes from "./api/docs";
 
 const app = new Hono();
 
@@ -27,6 +28,9 @@ app.use("*", cors());
 
 // Health check (no auth — deep check with DB + Redis status)
 app.route("/", healthRoutes);
+
+// API docs (no auth — Swagger UI + OpenAPI spec)
+app.route("/", docsRoutes);
 
 // Project + key management
 app.route("/v1/projects", projectsRoutes);
