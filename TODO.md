@@ -124,15 +124,15 @@ Ordered by dependency. Heartbeat works top to bottom.
 - [x] [S] src/api/health.ts — GET /health (DB + Redis + latency checks)
 - [ ] [C] Landing page — Next.js or plain HTML: what it is, pricing table, "Get API Key" CTA
 - [ ] [S] Dashboard — usage graph, credit balance, API key management (simple Next.js)
-- [ ] [S] SDK: TypeScript client (thin REST wrapper, published to npm)
-- [ ] [S] SDK: Python client (published to PyPI)
+- [x] [S] SDK: TypeScript client (@agentforge/tools — thin REST wrapper, ready for npm publish)
+- [x] [S] SDK: Python client (agentforge-tools — sync + async, ready for PyPI)
 - [x] [T] README.md — quick start, API reference, pricing, self-host instructions
 
 ---
 
 ## Phase 6 — Infrastructure & Deploy
 
-- [ ] [S] DEPLOY.md — full production deploy runbook
+- [x] [S] DEPLOY.md — full production deploy runbook
 - [ ] [C] Hetzner VPS setup: Docker, Playwright dependencies, Chromium, env vars
 - [ ] [S] Railway: PostgreSQL + Redis provisioned and connected
 - [ ] [S] Cloudflare: domain pointed, SSL full strict, WAF rules, rate limiting
