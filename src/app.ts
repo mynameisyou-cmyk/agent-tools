@@ -1,15 +1,16 @@
-/** Hono application entry point. */
+/** Hono application — all routes wired. */
 
 import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { cors } from "hono/cors";
 
-import { authMiddleware, type ProjectContext } from "./auth/middleware";
-import { searchRouter } from "./api/search";
-import { scrapeRouter } from "./api/scrape";
-import { documentRouter } from "./api/document";
-import { browseApp } from "./api/browse";
-import { jobsApp } from "./api/jobs";
+import searchRoutes from "./api/search";
+import scrapeRoutes from "./api/scrape";
+import documentRoutes from "./api/document";
+import browseRoutes from "./api/browse";
+import executeRoutes from "./api/execute";
+import jobsRoutes from "./api/jobs";
+import usageRoutes from "./api/usage";
 
 const app = new Hono();
 
@@ -18,21 +19,26 @@ app.use("*", logger());
 app.use("*", cors());
 
 // Health check (no auth)
-app.get("/health", (c) => c.json({ status: "ok", version: "0.1.0" }));
+app.get("/health", (c) =>
+  c.json({ status: "ok", version: "0.1.0", tools: ["search", "scrape", "browse", "document", "execute"] }),
+);
 
-// Authenticated tool routes
-const v1 = new Hono<ProjectContext>();
-v1.use("*", authMiddleware);
-v1.route("/", searchRouter);
-v1.route("/", scrapeRouter);
-v1.route("/", documentRouter);
-v1.route("/browse", browseApp);
-v1.route("/jobs", jobsApp);
+// Tool routes (auth-protected via individual routers)
+app.route("/v1/search", searchRoutes);
+app.route("/v1/scrape", scrapeRoutes);
+app.route("/v1/document", documentRoutes);
+app.route("/v1/browse", browseRoutes);
+app.route("/v1/execute", executeRoutes);
+app.route("/v1/jobs", jobsRoutes);
+app.route("/v1/usage", usageRoutes);
 
-// TODO: mount remaining tool routes
-// v1.route("/", executeRouter);
-// v1.route("/", usageRouter);
+// 404 fallback
+app.notFound((c) => c.json({ error: "Not found" }, 404));
 
-app.route("/v1", v1);
+// Global error handler
+app.onError((err, c) => {
+  console.error("Unhandled error:", err);
+  return c.json({ error: err.message || "Internal server error" }, 500);
+});
 
 export default app;
