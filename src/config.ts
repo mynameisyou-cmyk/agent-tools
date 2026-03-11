@@ -35,6 +35,9 @@ export const config = {
     executePer10s: Number(env("CREDIT_EXECUTE_PER_10S", "1")),
   },
 
+  // agent-economy (billing authority — internal)
+  economyUrl: env("ECONOMY_URL", "http://localhost:8004"),
+
   // Plan limits
   plans: {
     dev: { credits: 100, ratePerMin: 10 },

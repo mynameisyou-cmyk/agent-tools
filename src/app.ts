@@ -19,6 +19,7 @@ import webhookRoutes from "./api/billing/webhooks";
 import cryptoRoutes from "./api/billing/crypto";
 import healthRoutes from "./api/health";
 import docsRoutes from "./api/docs";
+import { tierGate } from "./billing/tierGate";
 
 const app = new Hono();
 
@@ -37,6 +38,12 @@ app.route("/v1/projects", projectsRoutes);
 app.route("/v1/keys", keysRoutes);
 
 // Tool routes (auth-protected via individual routers)
+// Tool routes — gated by billing tier (fail-open if economy service unreachable)
+app.use("/v1/search/*", tierGate("tool_calls"));
+app.use("/v1/scrape/*", tierGate("tool_calls"));
+app.use("/v1/document/*", tierGate("tool_calls"));
+app.use("/v1/browse/*", tierGate("tool_calls"));
+app.use("/v1/execute/*", tierGate("tool_calls"));
 app.route("/v1/search", searchRoutes);
 app.route("/v1/scrape", scrapeRoutes);
 app.route("/v1/document", documentRoutes);
