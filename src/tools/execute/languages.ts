@@ -1,34 +1,34 @@
 /** Language configurations for sandboxed execution. */
 
 export interface LanguageConfig {
-  image: string;
-  command: (code: string) => string[];
+  cmd: string;
+  args?: string[];
   fileExt: string;
   defaultTimeout: number; // ms
   maxTimeout: number;     // ms
-  memoryLimit: string;    // Docker memory limit
+  memoryLimit: string;    // informational (not enforced in subprocess mode)
 }
 
 export const languages: Record<string, LanguageConfig> = {
   python: {
-    image: "python:3.11-slim",
-    command: (code) => ["python3", "-c", code],
+    cmd: "python3",
+    args: ["-c"],
     fileExt: ".py",
     defaultTimeout: 10_000,
     maxTimeout: 30_000,
     memoryLimit: "256m",
   },
   javascript: {
-    image: "node:22-slim",
-    command: (code) => ["node", "-e", code],
+    cmd: "node",
+    args: ["-e"],
     fileExt: ".js",
     defaultTimeout: 10_000,
     maxTimeout: 30_000,
     memoryLimit: "256m",
   },
   bash: {
-    image: "alpine:3.19",
-    command: (code) => ["sh", "-c", code],
+    cmd: "sh",
+    args: ["-c"],
     fileExt: ".sh",
     defaultTimeout: 10_000,
     maxTimeout: 30_000,
