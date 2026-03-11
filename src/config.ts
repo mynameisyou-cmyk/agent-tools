@@ -9,6 +9,7 @@ export const config = {
 
   // External APIs
   braveApiKey: env("BRAVE_API_KEY", ""),
+  serpApiKey: env("SERPAPI_KEY", ""),
   brightDataProxy: env("BRIGHT_DATA_PROXY", ""),
   openaiApiKey: env("OPENAI_API_KEY", ""),
 
