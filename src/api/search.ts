@@ -65,3 +65,5 @@ searchRouter.post("/search", async (c) => {
 });
 
 export { searchRouter };
+
+export default searchRouter;

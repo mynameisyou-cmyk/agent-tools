@@ -46,3 +46,5 @@ scrapeRouter.post("/scrape", async (c) => {
 });
 
 export { scrapeRouter };
+
+export default scrapeRouter;

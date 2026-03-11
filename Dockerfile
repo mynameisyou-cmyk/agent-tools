@@ -9,6 +9,7 @@ FROM oven/bun:1.3-alpine AS build
 WORKDIR /app
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
+ARG CACHEBUST=1
 COPY . .
 # Type-check (non-blocking for now)
 # RUN bun run check
@@ -43,9 +44,6 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY --from=build /app/src ./src
 COPY --from=build /app/package.json ./
 COPY --from=build /app/drizzle.config.ts ./
-
-# Landing page assets
-COPY --from=build /app/public ./public
 
 # Drizzle migrations
 COPY --from=build /app/drizzle ./drizzle

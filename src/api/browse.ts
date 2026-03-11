@@ -70,3 +70,5 @@ browseApp.post("/", async (c) => {
 });
 
 export { browseApp };
+
+export default browseApp;

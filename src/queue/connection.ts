@@ -1,6 +1,6 @@
 /** Shared Redis/IORedis connection for BullMQ. */
 
-import { IORedis } from "bullmq";
+import IORedis from "ioredis";
 import { config } from "../config";
 
 /** Shared IORedis connection for BullMQ queues and workers. */

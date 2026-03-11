@@ -45,3 +45,5 @@ documentRouter.post("/document", async (c) => {
 });
 
 export { documentRouter };
+
+export default documentRouter;

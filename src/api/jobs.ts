@@ -45,3 +45,5 @@ jobsApp.get("/:id", async (c) => {
 });
 
 export { jobsApp };
+
+export default jobsApp;
