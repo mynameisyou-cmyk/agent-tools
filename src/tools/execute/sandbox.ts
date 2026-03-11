@@ -92,7 +92,9 @@ function executeSubprocess(
 ): Promise<ExecuteResult> {
   return new Promise((resolve) => {
     const cmd = req.language === "python" ? "python3" : (lang.cmd || req.language);
-    const args = req.language === "python" ? ["-c", req.code] : (lang.args ?? ["-e", req.code]);
+    // For all languages: spread base args then append code as final argument
+    const baseArgs = req.language === "python" ? ["-c"] : (lang.args ?? ["-e"]);
+    const args = [...baseArgs, req.code];
 
     const proc = spawn(cmd, args, {
       timeout: timeoutMs,
